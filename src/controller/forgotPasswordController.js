@@ -121,7 +121,7 @@ const forgotPassword = async (req, res) => {
       user.resetTokenExpires = Date.now() + 15 * 60 * 1000; // 15 minutes expiry
       await user.save();
   
-      const resetLink = `https://zidio-task-management-backend.onrender.com/reset-password?token=${token}`;
+      const resetLink = `https://zidio-task-management-backend.onrender.com/api/reset-password?token=${token}`;
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: user.email,
